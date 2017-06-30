@@ -1,0 +1,26 @@
+<head>
+  <title>CKAO</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background:#4CAF50">
+  <div class="container">
+    <form id="contact" onsubmit="return false;">
+      <h3>CKAO Admin</h3>
+      <h4>Enter secret key and proceed</h4>
+      <fieldset>
+        <textarea id="data" placeholder="Data" cols="50" rows="10" required></textarea>
+      </fieldset>
+      <fieldset>
+        <input id="key" placeholder="Secret key" type="text" tabindex="5" required>
+      </fieldset>
+      <fieldset>
+      <button name="submit" id="contact-submit" data-submit="...Sending">Add Data</button>
+      </fieldset>
+    </form>
+  </div>
+  <script type="text/javascript" src="admin.js"></script>
+</body>

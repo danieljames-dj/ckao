@@ -1,0 +1,23 @@
+THIS FILE IS NOT FOR PROGRAMMING PURPOSE. IT'S JUST TO RUN THE SAME QUERIES IN SERVER & LOCALHOST
+
+create table parts (Status varchar(1), Name varchar(100), Country varchar(50), WCAID varchar(20), DOB varchar(15), Gender varchar(1),
+e333 varchar(1), e222 varchar(1), e444 varchar(1), e555 varchar(1), e666 varchar(1), e333bf varchar(1), e333fm varchar(1),
+e333oh varchar(1), e333ft varchar(1), eminx varchar(1), epyram varchar(1), eskewb varchar(1), Email varchar(100), passcode varchar(10));
+
+create table heats (event varchar(10), timeslot varchar(10), id integer);
+
+insert into heats values ('e333', '116301700',2);
+insert into heats values ('e333', '210001030',3);
+insert into heats values ('e333', '210301100',4);
+insert into heats values ('e333', '211001130',5);
+insert into heats values ('e222', '116001630',2);
+insert into heats values ('e222', '211301200',3);
+insert into heats values ('e222', '212001230',4);
+insert into heats values ('e444', '114001430',2);
+insert into heats values ('e444', '114301500',3);
+insert into heats values ('epyram', '115301600',2);
+insert into heats values ('epyram', '209301000',3);
+insert into heats values ('eskewb', '113001330',2);
+insert into heats values ('eskewb', '113301400',3);
+insert into heats values ('e333oh', '115001530',2);
+insert into heats values ('e333oh', '209000930',3);
