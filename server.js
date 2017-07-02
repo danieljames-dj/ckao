@@ -80,11 +80,40 @@ app.post('/addData',function(req, res) {
 })
 app.post('/setDet',function(req, res) {
 	console.log(req.body);
-	if (req.body.e333) {
-		con.query('update parts set e333 = "' + req.body.e333 + '" where WCAID = "' + req.body.id + '"');
-	}
-	res.json({
-		success: true
+	con.query('select * from parts where WCAID = "' + req.body.objF.id + '"', function(err, rows) {
+		if (rows.length != 1) {
+			res.json({
+				success: false
+			});
+		} else {
+			if (req.body.objF.e333) {
+				console.log('test');
+				con.query('update parts set e333 = "' + req.body.objF.e333 + '" where WCAID = "' + req.body.objF.id + '"');
+			}
+			if (req.body.objF.e222) {
+				console.log('test');
+				con.query('update parts set e222 = "' + req.body.objF.e222 + '" where WCAID = "' + req.body.objF.id + '"');
+			}
+			if (req.body.objF.e444) {
+				console.log('test');
+				con.query('update parts set e444 = "' + req.body.objF.e444 + '" where WCAID = "' + req.body.objF.id + '"');
+			}
+			if (req.body.objF.e333oh) {
+				console.log('test');
+				con.query('update parts set e333oh = "' + req.body.objF.e333oh + '" where WCAID = "' + req.body.objF.id + '"');
+			}
+			if (req.body.objF.epyram) {
+				console.log('test');
+				con.query('update parts set epyram = "' + req.body.objF.epyram + '" where WCAID = "' + req.body.objF.id + '"');
+			}
+			if (req.body.objF.eskewb) {
+				console.log('test');
+				con.query('update parts set eskewb = "' + req.body.objF.eskewb + '" where WCAID = "' + req.body.objF.id + '"');
+			}
+			res.json({
+				success: true
+			});
+		}
 	});
 })
 app.post('/getDet',function(req, res) {
@@ -93,9 +122,10 @@ app.post('/getDet',function(req, res) {
 		con.query('select * from heats', function(err, rows2) {
 			var list = [];
 			var options = {};
+			var limit = 30;
 			var i, j, k;
 			for (i = 0; i < rows1.length; i++) {
-				if (rows1[i].WCAID == req.body.id) break;
+				if (rows1[i].WCAID == req.body.id && rows1[i].passcode == req.body.passcode) break;
 			}
 			if (i == rows1.length) {
 				res.json({
@@ -109,7 +139,42 @@ app.post('/getDet',function(req, res) {
 						for (k = 0; k < rows1.length; k++) {
 							if (rows1[k].e333 == options.id) c++;
 						}
-						if (c < 30) list.push(options);
+						if (c < limit) list.push(options);
+					} else if (rows2[j].event == 'e222' && rows1[i].e222 != '0') {
+						options = rows2[j];
+						var c = 0;
+						for (k = 0; k < rows1.length; k++) {
+							if (rows1[k].e222 == options.id) c++;
+						}
+						if (c < limit) list.push(options);
+					} else if (rows2[j].event == 'e444' && rows1[i].e444 != '0') {
+						options = rows2[j];
+						var c = 0;
+						for (k = 0; k < rows1.length; k++) {
+							if (rows1[k].e444 == options.id) c++;
+						}
+						if (c < limit) list.push(options);
+					} else if (rows2[j].event == 'e333oh' && rows1[i].e333oh != '0') {
+						options = rows2[j];
+						var c = 0;
+						for (k = 0; k < rows1.length; k++) {
+							if (rows1[k].e333oh == options.id) c++;
+						}
+						if (c < limit) list.push(options);
+					} else if (rows2[j].event == 'epyram' && rows1[i].epyram != '0') {
+						options = rows2[j];
+						var c = 0;
+						for (k = 0; k < rows1.length; k++) {
+							if (rows1[k].epyram == options.id) c++;
+						}
+						if (c < limit) list.push(options);
+					} else if (rows2[j].event == 'eskewb' && rows1[i].eskewb != '0') {
+						options = rows2[j];
+						var c = 0;
+						for (k = 0; k < rows1.length; k++) {
+							if (rows1[k].eskewb == options.id) c++;
+						}
+						if (c < limit) list.push(options);
 					}
 				}
 				if (list.length == 0) {

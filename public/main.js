@@ -9,6 +9,7 @@ function getParameterByName(name, url) {
 }
 
 var id = getParameterByName('id');
+var passcode = getParameterByName('passcode');
 console.log(id);
 
 var xhttp = new XMLHttpRequest();
@@ -19,7 +20,7 @@ xhttp.onload = function() {
 	// document.getElementById('h2con').innerHTML = length.toString() + " result(s) found";
 	console.log(json);
 	if (json.success == false) {
-		alert('Invalid Link');
+		alert('Looks like you do not have any events which have multiple slots. If you do have any events with multiple slot, please contact the organizer.');
 	} else {
 		document.getElementById('name').innerHTML = 'Hi ' + json.name + ',\nPlease select your time slots. If any time slot is not visible, then that slot will be full.';
 		var i;
@@ -68,7 +69,92 @@ xhttp.onload = function() {
 			text += `</select>
 			</fieldset>
 			`;
-			document.getElementById('form').innerHTML = text;
+			document.getElementById('form').innerHTML += text;
+		}
+		if (e222.length > 0) {
+			var obj = e222;
+			var text = ""
+			text += `
+			<fieldset>
+				<select id="e222" class="form-control" data-style="btn-primary">
+				<option value="1">2x2x2 - Any Time Slot</option>`;
+			for (var j = 0; j < obj.length; j++) {
+				console.log("GG")
+				text += `<option value="` + obj[j].id + `">2x2x2 - Day ` + getString(obj[j].timeslot) + ` HRS</option>`
+			}
+			console.log("HH")
+			text += `</select>
+			</fieldset>
+			`;
+			document.getElementById('form').innerHTML += text;
+		}
+		if (e444.length > 0) {
+			var obj = e444;
+			var text = ""
+			text += `
+			<fieldset>
+				<select id="e444" class="form-control" data-style="btn-primary">
+				<option value="1">4x4x4 - Any Time Slot</option>`;
+			for (var j = 0; j < obj.length; j++) {
+				console.log("GG")
+				text += `<option value="` + obj[j].id + `">4x4x4 - Day ` + getString(obj[j].timeslot) + ` HRS</option>`
+			}
+			console.log("HH")
+			text += `</select>
+			</fieldset>
+			`;
+			document.getElementById('form').innerHTML += text;
+		}
+		if (e333oh.length > 0) {
+			var obj = e333oh;
+			var text = ""
+			text += `
+			<fieldset>
+				<select id="e333oh" class="form-control" data-style="btn-primary">
+				<option value="1">3x3x3 One-Handed - Any Time Slot</option>`;
+			for (var j = 0; j < obj.length; j++) {
+				console.log("GG")
+				text += `<option value="` + obj[j].id + `">3x3x3 One-Handed - Day ` + getString(obj[j].timeslot) + ` HRS</option>`
+			}
+			console.log("HH")
+			text += `</select>
+			</fieldset>
+			`;
+			document.getElementById('form').innerHTML += text;
+		}
+		if (epyram.length > 0) {
+			var obj = epyram;
+			var text = ""
+			text += `
+			<fieldset>
+				<select id="epyram" class="form-control" data-style="btn-primary">
+				<option value="1">Pyraminx - Any Time Slot</option>`;
+			for (var j = 0; j < obj.length; j++) {
+				console.log("GG")
+				text += `<option value="` + obj[j].id + `">Pyraminx - Day ` + getString(obj[j].timeslot) + ` HRS</option>`
+			}
+			console.log("HH")
+			text += `</select>
+			</fieldset>
+			`;
+			document.getElementById('form').innerHTML += text;
+		}
+		if (eskewb.length > 0) {
+			var obj = eskewb;
+			var text = ""
+			text += `
+			<fieldset>
+				<select id="eskewb" class="form-control" data-style="btn-primary">
+				<option value="1">Skewb - Any Time Slot</option>`;
+			for (var j = 0; j < obj.length; j++) {
+				console.log("GG")
+				text += `<option value="` + obj[j].id + `">Skewb - Day ` + getString(obj[j].timeslot) + ` HRS</option>`
+			}
+			console.log("HH")
+			text += `</select>
+			</fieldset>
+			`;
+			document.getElementById('form').innerHTML += text;
 		}
 		document.getElementById('contact-submit').onclick = function() {
 			console.log("HII");
@@ -80,6 +166,7 @@ xhttp.onload = function() {
 			if (document.getElementById('epyram')) objF.epyram = document.getElementById('epyram').value;
 			if (document.getElementById('eskewb')) objF.eskewb = document.getElementById('eskewb').value;
 			objF.id = id;
+			// objF.secretCode = document.getElementById("key").value;
 			console.log(objF);
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("POST", "http://localhost:8080/setDet", true);
@@ -108,6 +195,7 @@ xhttp.onload = function() {
 xhttp.setRequestHeader('Content-Type', 'application/json');
 var json = {}
 json.id = id;
+json.passcode = passcode;
 console.log(json);
 xhttp.send(JSON.stringify(json));
 

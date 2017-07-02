@@ -1,6 +1,6 @@
 THIS FILE IS NOT FOR PROGRAMMING PURPOSE. IT'S JUST TO RUN THE SAME QUERIES IN SERVER & LOCALHOST
 
-create table parts (Status varchar(1), Name varchar(100), Country varchar(50), WCAID varchar(20), DOB varchar(15), Gender varchar(1),
+create table parts (Status varchar(1), Name varchar(100), Country varchar(50), WCAID varchar(30), DOB varchar(15), Gender varchar(1),
 e333 varchar(1), e222 varchar(1), e444 varchar(1), e555 varchar(1), e666 varchar(1), e333bf varchar(1), e333fm varchar(1),
 e333oh varchar(1), e333ft varchar(1), eminx varchar(1), epyram varchar(1), eskewb varchar(1), Email varchar(100), passcode varchar(10));
 
