@@ -13,7 +13,7 @@ var passcode = getParameterByName('passcode');
 console.log(id);
 
 var xhttp = new XMLHttpRequest();
-xhttp.open("POST", "http://localhost:8080/getDet", true);
+xhttp.open("POST", "/getDet", true);
 xhttp.onload = function() {
 	json = JSON.parse(xhttp.responseText);
 	// var length = Object.keys(json).length;
@@ -169,7 +169,7 @@ xhttp.onload = function() {
 			// objF.secretCode = document.getElementById("key").value;
 			console.log(objF);
 			var xhttp = new XMLHttpRequest();
-			xhttp.open("POST", "http://localhost:8080/setDet", true);
+			xhttp.open("POST", "/setDet", true);
 			xhttp.onload = function() {
 				json = JSON.parse(xhttp.responseText);
 				if (json.success == true) {

@@ -13,7 +13,7 @@ document.getElementById('contact-submit').onclick = function() {
                 var json = {};
                 json.inputs = inputs;
                 var xhttp = new XMLHttpRequest();
-                xhttp.open("POST", "http://localhost:8080/addData", true);
+                xhttp.open("POST", "/addData", true);
                 // xhttp.onload = function() {}
                 xhttp.setRequestHeader('Content-Type', 'application/json');
                 // console.log(json);
