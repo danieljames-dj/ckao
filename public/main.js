@@ -70,6 +70,7 @@ xhttp.onload = function() {
 			</fieldset>
 			`;
 			document.getElementById('form').innerHTML += text;
+			document.getElementById('e333').value = parseInt(json.user.e333);
 		}
 		if (e222.length > 0) {
 			var obj = e222;
@@ -87,6 +88,7 @@ xhttp.onload = function() {
 			</fieldset>
 			`;
 			document.getElementById('form').innerHTML += text;
+			document.getElementById('e222').value = parseInt(json.user.e222);
 		}
 		if (e444.length > 0) {
 			var obj = e444;
@@ -104,6 +106,7 @@ xhttp.onload = function() {
 			</fieldset>
 			`;
 			document.getElementById('form').innerHTML += text;
+			document.getElementById('444').value = parseInt(json.user.444);
 		}
 		if (e333oh.length > 0) {
 			var obj = e333oh;
@@ -121,6 +124,7 @@ xhttp.onload = function() {
 			</fieldset>
 			`;
 			document.getElementById('form').innerHTML += text;
+			document.getElementById('e333oh').value = parseInt(json.user.e333oh);
 		}
 		if (epyram.length > 0) {
 			var obj = epyram;
@@ -138,6 +142,7 @@ xhttp.onload = function() {
 			</fieldset>
 			`;
 			document.getElementById('form').innerHTML += text;
+			document.getElementById('epyram').value = parseInt(json.user.epyram);
 		}
 		if (eskewb.length > 0) {
 			var obj = eskewb;
@@ -155,6 +160,7 @@ xhttp.onload = function() {
 			</fieldset>
 			`;
 			document.getElementById('form').innerHTML += text;
+			document.getElementById('eskewb').value = parseInt(json.user.eskewb);
 		}
 		document.getElementById('contact-submit').onclick = function() {
 			console.log("HII");
